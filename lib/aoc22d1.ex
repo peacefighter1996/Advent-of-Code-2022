@@ -1,4 +1,4 @@
-defmodule Aoc221 do
+defmodule Aoc22d1 do
   @moduledoc """
   Module for solving the questions of day 1 of Advent of Code 2022.
   """
@@ -7,7 +7,7 @@ defmodule Aoc221 do
   Get the input data from the data/input.txt file.
   """
   def data do
-    {:ok, data} = File.read("data/input.txt")
+    {:ok, data} = File.read("data/input_day1.txt")
     split1 = String.split(data, "\r\n\r\n")
     split2 = Enum.map(split1, fn x -> Enum.map(String.split(x, "\r\n"), 
       fn y -> String.to_integer(y) end) end)

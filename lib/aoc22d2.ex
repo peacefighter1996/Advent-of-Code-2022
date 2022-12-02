@@ -1,4 +1,4 @@
-defmodule Aoc222 do
+defmodule Aoc22d2 do
   @moduledoc """
   Module for solving the questions of day 2 of Advent of Code 2022.
   """
@@ -7,7 +7,7 @@ defmodule Aoc222 do
   Get the input data from the data/input.txt file.
   """
   def data do
-    {:ok, data} = File.read("data/input.txt")
+    {:ok, data} = File.read("data/input_day2.txt")
     String.split(data, "\r\n") 
   end
 
