@@ -1,16 +1,10 @@
 defmodule Aoc221 do
   @moduledoc """
-  Documentation for `Aoc221`.
+  Module for solving the questions of day 1 of Advent of Code 2022.
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Aoc221.hello()
-      :world
-
+  Get the input data from the data/input.txt file.
   """
   def data do
     {:ok, data} = File.read("data/input.txt")
@@ -21,12 +15,18 @@ defmodule Aoc221 do
     summedSplit
   end
 
-  def headElf do
+  @doc """
+  result of question 1
+  """
+  def question1 do
     max = Enum.max(data())
     max
   end
 
-  def headCouncil do
+  @doc """
+  result of question 2
+  """
+  def question2 do
     #sort data
     sortedData = Enum.sort(data(), &(&1 >= &2))
     Enum.take(sortedData, 3) |> Enum.reduce(0, fn x, acc -> x + acc end)

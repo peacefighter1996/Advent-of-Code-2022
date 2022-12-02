@@ -1,22 +1,19 @@
 defmodule Aoc222 do
   @moduledoc """
-  Documentation for `Aoc222`.
+  Module for solving the questions of day 2 of Advent of Code 2022.
   """
 
   @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Aoc222.hello()
-      :world
-
+  Get the input data from the data/input.txt file.
   """
   def data do
     {:ok, data} = File.read("data/input.txt")
     String.split(data, "\r\n") 
   end
 
+  @doc """
+  result of question 1
+  """
   def question1 do
     rock = 1
     paper = 2
@@ -42,7 +39,9 @@ defmodule Aoc222 do
     |> Enum.reduce(0, fn x, acc -> x + acc end)
   end
 
-
+  @doc """
+  result of question 2
+  """
   def question2 do
     rock = 1
     paper = 2
