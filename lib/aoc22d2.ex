@@ -14,7 +14,10 @@ defmodule Aoc22d2 do
   @doc """
   result of question 1
   """
-  def question1 do
+  def question1() do
+    question1(data())
+  end
+  def question1(data) do
     rock = 1
     paper = 2
     scissors = 3
@@ -34,7 +37,7 @@ defmodule Aoc22d2 do
       "C Z" => draw + scissors
     }
 
-    data()
+    data
     |> Enum.map(fn x -> map[x] end)
     |> Enum.reduce(0, fn x, acc -> x + acc end)
   end
@@ -42,7 +45,10 @@ defmodule Aoc22d2 do
   @doc """
   result of question 2
   """
-  def question2 do
+  def question2() do
+    question2(data())
+  end
+  def question2(data) do
     rock = 1
     paper = 2
     scissors = 3
@@ -62,7 +68,7 @@ defmodule Aoc22d2 do
       "C Z" => win  + rock
     }
 
-    data()
+    data
     |> Enum.map(fn x -> map[x] end)
     |> Enum.reduce(0, fn x, acc -> x + acc end)
   end

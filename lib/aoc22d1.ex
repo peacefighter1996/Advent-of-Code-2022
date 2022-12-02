@@ -19,7 +19,11 @@ defmodule Aoc22d1 do
   result of question 1
   """
   def question1 do
-    max = Enum.max(data())
+    question1(data())
+  end
+
+  def question1(data) do
+    max = Enum.max(data)
     max
   end
 
@@ -27,9 +31,12 @@ defmodule Aoc22d1 do
   result of question 2
   """
   def question2 do
+    question2(data())
+  end
+
+  def question2(data) do
     #sort data
-    sortedData = Enum.sort(data(), &(&1 >= &2))
+    sortedData = Enum.sort(data, &(&1 >= &2))
     Enum.take(sortedData, 3) |> Enum.reduce(0, fn x, acc -> x + acc end)
-    
   end
 end
