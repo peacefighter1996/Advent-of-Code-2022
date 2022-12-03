@@ -7,10 +7,12 @@ defmodule Aoc22d3 do
   Get the input data from the data/input_day3.txt file.
   """
   def data do
-    {:ok, data} = File.read("data/input_day3.txt")
-    String.split(data, "\r\n")
-    #split string in half
+    data("data/input/day3.txt")
+  end
 
+  def data(file) do
+    {:ok, data} = File.read(file)
+    String.split(data, "\r\n")
   end
 
   def question1() do

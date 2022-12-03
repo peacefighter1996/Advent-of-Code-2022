@@ -7,8 +7,8 @@ defmodule Aoc22d2 do
   Get the input data from the data/input_day2.txt file.
   """
   def data do
-    {:ok, data} = File.read("data/input_day2.txt")
-    String.split(data, "\r\n") 
+    {:ok, data} = File.read("data/input/day2.txt")
+    String.split(data, "\r\n")
   end
 
   @doc """
@@ -23,7 +23,7 @@ defmodule Aoc22d2 do
     scissors = 3
     lose = 0
     win = 6
-    draw = 3 
+    draw = 3
 
     map = %{
       "A X" => draw + rock,
@@ -54,7 +54,7 @@ defmodule Aoc22d2 do
     scissors = 3
     lose = 0
     win = 6
-    draw = 3 
+    draw = 3
 
     map = %{
       "A X" => lose + scissors,

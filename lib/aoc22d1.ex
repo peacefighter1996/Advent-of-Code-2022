@@ -7,13 +7,18 @@ defmodule Aoc22d1 do
   Get the input data from the data/input_day1.txt file.
   """
   def data do
-    {:ok, data} = File.read("data/input_day1.txt")
+    data("data/input/day1.txt")
+  end
+
+  def data(file) do
+    {:ok, data} = File.read(file)
     split1 = String.split(data, "\r\n\r\n")
     split2 = Enum.map(split1, fn x -> Enum.map(String.split(x, "\r\n"),
       fn y -> String.to_integer(y) end) end)
     summedSplit = split2 |> Enum.map(fn x -> Enum.reduce(x, 0, fn y, acc -> y + acc end) end)
     summedSplit
   end
+
 
   @doc """
   result of question 1
