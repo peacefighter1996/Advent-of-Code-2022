@@ -4,12 +4,12 @@ defmodule Aoc22d1 do
   """
 
   @doc """
-  Get the input data from the data/input.txt file.
+  Get the input data from the data/input_day1.txt file.
   """
   def data do
     {:ok, data} = File.read("data/input_day1.txt")
     split1 = String.split(data, "\r\n\r\n")
-    split2 = Enum.map(split1, fn x -> Enum.map(String.split(x, "\r\n"), 
+    split2 = Enum.map(split1, fn x -> Enum.map(String.split(x, "\r\n"),
       fn y -> String.to_integer(y) end) end)
     summedSplit = split2 |> Enum.map(fn x -> Enum.reduce(x, 0, fn y, acc -> y + acc end) end)
     summedSplit

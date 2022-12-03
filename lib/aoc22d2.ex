@@ -4,7 +4,7 @@ defmodule Aoc22d2 do
   """
 
   @doc """
-  Get the input data from the data/input.txt file.
+  Get the input data from the data/input_day2.txt file.
   """
   def data do
     {:ok, data} = File.read("data/input_day2.txt")
