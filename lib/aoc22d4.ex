@@ -32,9 +32,9 @@ defmodule Aoc22d4 do
 
   def contain([l1,l2]) do
     cond do
-      Enum.member?(Enum.at(l1,0)..Enum.at(l1,1), Enum.at(l2,0)) and Enum.member?(Enum.at(l1,0)..Enum.at(l1,1), Enum.at(l2,1)) ->
+      !Range.disjoint?(Enum.at(l1,0)..Enum.at(l1,1), Enum.at(l2,0)..Enum.at(l2,0)) and !Range.disjoint?(Enum.at(l1,0)..Enum.at(l1,1), Enum.at(l2,1)..Enum.at(l2,1)) ->
         true
-      Enum.member?(Enum.at(l2,0)..Enum.at(l2,1), Enum.at(l1,0)) and Enum.member?(Enum.at(l2,0)..Enum.at(l2,1), Enum.at(l1,1)) ->
+      !Range.disjoint?(Enum.at(l2,0)..Enum.at(l2,1), Enum.at(l1,0)..Enum.at(l1,0)) and !Range.disjoint?(Enum.at(l2,0)..Enum.at(l2,1), Enum.at(l1,1)..Enum.at(l1,1))->
         true
       true ->
         false
@@ -42,11 +42,7 @@ defmodule Aoc22d4 do
   end
 
   def contain_at_all([l1,l2]) do
-    x = (Enum.at(l2,0)..Enum.at(l2,1))
-    |> Enum.map(fn x -> Enum.member?(Enum.at(l1,0)..Enum.at(l1,1), x) end)
-    |> Enum.filter(fn x -> x == true end)
-    |> Enum.count()
-    x>0
+    !Range.disjoint?(Enum.at(l2,0)..Enum.at(l2,1), Enum.at(l1,0)..Enum.at(l1,1))
   end
 
   @doc """
