@@ -3,7 +3,7 @@ defmodule Aoc223Test do
   doctest Aoc22d3
 
   test "example 1 for question 1" do
-    assert Aoc22d3.question1(Aoc22d3.data("data/test/day3/1.txt")) == 157
+    assert Aoc22d3.question1(Aoc22d3.data("data/test/day3_1.txt")) == 157
   end
 
   test "input result question 1" do
@@ -17,6 +17,6 @@ defmodule Aoc223Test do
   end
 
   test "example 1 for question 2" do
-    assert Aoc22d3.question2(Aoc22d3.data("data/test/day3/1.txt")) == 70
+    assert Aoc22d3.question2(Aoc22d3.data("data/test/day3_1.txt")) == 70
   end
 end

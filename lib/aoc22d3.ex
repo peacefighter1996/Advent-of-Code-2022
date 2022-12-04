@@ -6,7 +6,7 @@ defmodule Aoc22d3 do
   @doc """
   Get the input data from the data/input_day3.txt file.
   """
-  def data do
+  def data() do
     data("data/input/day3.txt")
   end
 

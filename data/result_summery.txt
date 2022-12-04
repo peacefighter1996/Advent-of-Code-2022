@@ -1,5 +1,6 @@
 Advent of Code 2022
 
-Result day 1:	-question 1 [0ms]: [72240] 	-question 2 [0ms]: [210957] 	-data format time: [2ms]
-Result day 2:	-question 1 [1ms]: [12772] 	-question 2 [0ms]: [11618] 	-data format time: [1ms]
-Result day 3:	-question 1 [7ms]: [8109] 	-question 2 [3ms]: [2738] 	-data format time: [0ms]
+Result day 1:	-question 1 [0ms]: [72240]	-question 2 [0ms]: [210957]	-data format time: [1ms]
+Result day 2:	-question 1 [0ms]: [12772]	-question 2 [0ms]: [11618]	-data format time: [0ms]
+Result day 3:	-question 1 [7ms]: [8109]	-question 2 [1ms]: [2738]	-data format time: [1ms]
+Result day 4:	-question 1 [1ms]: [483]	-question 2 [9ms]: [874]	-data format time: [5ms]

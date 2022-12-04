@@ -12,7 +12,7 @@ defmodule Aoc22 do
     # clear result summery file
     File.rm("data/result_summery.txt")
     File.write("data/result_summery.txt", "Advent of Code 2022\r\n\r\n")
-    solutions = [Aoc22d1, Aoc22d2, Aoc22d3]
+    solutions = [Aoc22d1, Aoc22d2, Aoc22d3, Aoc22d4]
     Enum.map(0..(length(solutions)-1), fn i -> runDay(i+1,Enum.at(solutions,i)) end)
   end
 
@@ -26,7 +26,7 @@ defmodule Aoc22 do
     start = :os.system_time(:millisecond)
     q2 = x.question2(data)
     timeQ2 = :os.system_time(:millisecond)-start
-    str = "Result day #{n}:\t-question 1 [#{timeQ1}ms]: [#{q1}] \t-question 2 [#{timeQ2}ms]: [#{q2}] \t-data format time: [#{timeData}ms]"
+    str = "Result day #{n}:\t-question 1 [#{timeQ1}ms]: [#{q1}]\t-question 2 [#{timeQ2}ms]: [#{q2}]\t-data format time: [#{timeData}ms]"
     IO.puts(str)
     File.write("data/result_summery.txt", Enum.join([str,"\r\n"]), [:append])
   end
