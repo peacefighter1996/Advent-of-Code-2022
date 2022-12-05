@@ -59,40 +59,26 @@ defmodule Aoc22d5 do
     |> Enum.map(fn x -> to_charlist(Enum.at(x,0)) end)
     |> Enum.map(fn x -> Enum.at(x,0) end)
   end
-
+  def execute9000([], stacks) do stacks end
   def execute9000(instructions, stacks) do
-    if length(instructions) != 0 do
-      #Enum.map(stacks, fn x-> IO.puts(x) end)
-      #IO.puts("=====================================")
-      [a,b,c] = Enum.at(instructions, 0)
-      # move a items from stack b to stack c
-      stacks_c = Enum.reverse(Enum.take(Enum.at(stacks,b-1), a)) ++ Enum.at(stacks,c-1)
-      stacks_b = Enum.drop(Enum.at(stacks,b-1), a)
-      execute9000(Enum.drop(instructions,1),Enum.map(0..length(stacks)-1, fn x -> cond do
-        x==b-1 -> stacks_b
-        x==c-1 -> stacks_c
-        true -> Enum.at(stacks, x)
-      end end))
-    else
-      stacks
-    end
+    [a,b,c] = Enum.at(instructions, 0)
+    stacks_c = Enum.reverse(Enum.take(Enum.at(stacks,b-1), a)) ++ Enum.at(stacks,c-1)
+    stacks_b = Enum.drop(Enum.at(stacks,b-1), a)
+    execute9000(Enum.drop(instructions,1),Enum.map(0..length(stacks)-1, fn x -> cond do
+      x==b-1 -> stacks_b
+      x==c-1 -> stacks_c
+      true -> Enum.at(stacks, x)
+    end end))
   end
-
+  def execute9001([], stacks) do stacks end
   def execute9001(instructions, stacks) do
-    if length(instructions) != 0 do
-      #Enum.map(stacks, fn x-> IO.puts(x) end)
-      #IO.puts("=====================================")
-      [a,b,c] = Enum.at(instructions, 0)
-      # move a items from stack b to stack c
-      stacks_c = Enum.take(Enum.at(stacks,b-1), a) ++ Enum.at(stacks,c-1)
-      stacks_b = Enum.drop(Enum.at(stacks,b-1), a)
-      execute9001(Enum.drop(instructions,1),Enum.map(0..length(stacks)-1, fn x -> cond do
-        x==b-1 -> stacks_b
-        x==c-1 -> stacks_c
-        true -> Enum.at(stacks, x)
-      end end))
-    else
-      stacks
-    end
+    [a,b,c] = Enum.at(instructions, 0)
+    stacks_c = Enum.take(Enum.at(stacks,b-1), a) ++ Enum.at(stacks,c-1)
+    stacks_b = Enum.drop(Enum.at(stacks,b-1), a)
+    execute9001(Enum.drop(instructions,1),Enum.map(0..length(stacks)-1, fn x -> cond do
+      x==b-1 -> stacks_b
+      x==c-1 -> stacks_c
+      true -> Enum.at(stacks, x)
+    end end))
   end
 end
