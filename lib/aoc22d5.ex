@@ -59,6 +59,7 @@ defmodule Aoc22d5 do
     |> Enum.map(fn x -> to_charlist(Enum.at(x,0)) end)
     |> Enum.map(fn x -> Enum.at(x,0) end)
   end
+
   def execute9000([], stacks) do stacks end
   def execute9000(instructions, stacks) do
     [a,b,c] = Enum.at(instructions, 0)
@@ -70,6 +71,7 @@ defmodule Aoc22d5 do
       true -> Enum.at(stacks, x)
     end end))
   end
+
   def execute9001([], stacks) do stacks end
   def execute9001(instructions, stacks) do
     [a,b,c] = Enum.at(instructions, 0)
