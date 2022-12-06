@@ -35,12 +35,15 @@ defmodule Aoc22 do
     start = :os.system_time(:millisecond)
     data = x.data(file)
     timeData = :os.system_time(:millisecond)-start
+    IO.puts("Retrieved data from file: #{file}")
     start = :os.system_time(:millisecond)
     q1 = x.question1(data)
     timeQ1 = :os.system_time(:millisecond)-start
+    IO.puts("Question 1 done")
     start = :os.system_time(:millisecond)
     q2 = x.question2(data)
     timeQ2 = :os.system_time(:millisecond)-start
+    IO.puts("Question 2 done")
     str = "Result day #{n}:\t-question 1 [#{timeQ1}ms]: [#{q1}]\t-question 2 [#{timeQ2}ms]: [#{q2}]\t-data format time: [#{timeData}ms]"
     IO.puts(str)
     File.write("data/result_summery.txt", Enum.join([str,"\r\n"]), [:append])
