@@ -24,3 +24,5 @@ aoc22_1-*.tar
 
 # Temporary files, for example, from tests.
 /tmp/
+
+data/extra_challange/*
