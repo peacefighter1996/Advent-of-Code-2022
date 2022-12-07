@@ -77,7 +77,7 @@ defmodule Aoc22d6 do
       Map.put(maskmap, x,1)
     end
   end
-  def find_index(maskmap,mask,data, i, true) do
+  def find_index(_,_,_, i, true) do
     i
   end
   def find_index(maskmap,mask,data, i, false) do
