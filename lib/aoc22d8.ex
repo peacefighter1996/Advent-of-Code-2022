@@ -99,12 +99,9 @@ defmodule Aoc22d8 do
   end
 
   def get_scenic_scores(location, data)do
-    current = self()
+    #current = self()
     transposed = transpose(data)
-    Enum.map(location,fn {x,y}-> spawn_link(fn -> send(current, {self(), get_scenic_score(Enum.at(data,x),Enum.at(transposed,y), x,y,Enum.at(Enum.at(data,x),y))}) end)end)
-    |> Enum.map(fn child -> receive do
-      {^child, k} -> k
-    end end)
+    Enum.map(location,fn {x,y}-> get_scenic_score(Enum.at(data,x),Enum.at(transposed,y), x,y,Enum.at(Enum.at(data,x),y)) end)
   end
   def get_scenic_score([], _,value) do
     value
