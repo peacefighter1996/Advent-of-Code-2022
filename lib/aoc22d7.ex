@@ -1,6 +1,6 @@
 defmodule Aoc22d7 do
   @moduledoc """
-  Module for solving the questions of day 5 of Advent of Code 2022.
+  Module for solving the questions of day 7 of Advent of Code 2022.
   """
 
   @doc """
