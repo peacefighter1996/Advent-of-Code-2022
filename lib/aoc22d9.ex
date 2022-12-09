@@ -23,30 +23,35 @@ defmodule Aoc22d9 do
     question1(data())
   end
   def question1(data) do
-    map = %{{0,0} => true}
-    runpath(data, {0,0}, Enum.map(1..1, fn _ -> {0,0} end), map)
+    runpath(Enum.map(0..1, fn _ -> {0,0} end),data)
     |> Enum.count()
   end
-
-
-  def runpath([], _, _, map) do
-    map
+  def runpath(tail,data) do
+    runpath(tail,data,%{{0,0} => true})
   end
-  def runpath(data, pos, tail, map) do
-    cmd = Enum.at(data, 0)
+  def runpath(tail,[],  map) do
+    updatmap(map, Enum.at(tail,-1))
+  end
+  def runpath(tail,data,  map) do
+
+    Enum.at(data, 0)
+    |> execute(tail)
+    |> runpath(Enum.drop(data,1), updatmap(map, Enum.at(tail,-1)))
+  end
+
+  def execute(cmd, tail) do
+    pos = Enum.at(tail,0)
     case cmd do
-      "U" -> updateTail(Enum.drop(data,1), tuple_add(pos,{1,0}), tail, map)
-      "D" -> updateTail(Enum.drop(data,1), tuple_add(pos,{-1,0}), tail, map)
-      "L" -> updateTail(Enum.drop(data,1), tuple_add(pos,{0,-1}), tail, map)
-      "R" -> updateTail(Enum.drop(data,1), tuple_add(pos,{0,1}), tail, map)
+      "U" -> get_new_tail(Enum.drop(tail,1), tuple_add(pos,{1,0}))
+      "D" -> get_new_tail(Enum.drop(tail,1), tuple_add(pos,{-1,0}))
+      "L" -> get_new_tail(Enum.drop(tail,1), tuple_add(pos,{0,-1}))
+      "R" -> get_new_tail(Enum.drop(tail,1), tuple_add(pos,{0,1}))
       _ -> throw("unknown command")
     end
   end
 
-  def updateTail(data, pos, tail, map) do
-    newtail=get_new_tail(tail, pos, [])
-    #IO.inspect(newtail)
-    runpath(data, pos, newtail, updatmap(map, Enum.at(newtail,-1)))
+  def get_new_tail(tail, pos) do
+    get_new_tail(tail, pos,[pos])
   end
   def get_new_tail([], _, newtail) do
     newtail
@@ -55,12 +60,12 @@ defmodule Aoc22d9 do
     if tuple_distance(head,Enum.at(tail,0))<2 do
       newtail++tail
     else
-      new_tail_pos = get_new_tail(Enum.at(tail,0),head)
+      new_tail_pos = get_new_tail_pos(Enum.at(tail,0),head)
       get_new_tail(Enum.drop(tail,1), new_tail_pos, newtail ++ [new_tail_pos])
     end
   end
 
-  def get_new_tail(tail, pos) do
+  def get_new_tail_pos(tail, pos) do
     diffrence = tuple_sub(pos,tail)
     pos_x = elem(diffrence,0) / Enum.max([abs(elem(diffrence,0)),1])
     pos_y = elem(diffrence,1) / Enum.max([abs(elem(diffrence,1)),1])
@@ -96,7 +101,7 @@ defmodule Aoc22d9 do
     question2(data())
   end
   def question2(data) do
-    runpath(data, {0,0}, Enum.map(1..9, fn _ -> {0,0} end), %{{0,0} => true})
+    runpath(Enum.map(0..9, fn _ -> {0,0} end),data)
     |> Enum.count()
   end
 
