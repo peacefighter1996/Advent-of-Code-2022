@@ -1,10 +1,10 @@
 Advent of Code 2022
 
 Result day 1:	-question 1 [0ms]: [72240]	-question 2 [0ms]: [210957]	-data format time: [1ms]
-Result day 2:	-question 1 [1ms]: [12772]	-question 2 [0ms]: [11618]	-data format time: [0ms]
-Result day 3:	-question 1 [5ms]: [8109]	-question 2 [2ms]: [2738]	-data format time: [0ms]
-Result day 4:	-question 1 [0ms]: [483]	-question 2 [1ms]: [874]	-data format time: [3ms]
+Result day 2:	-question 1 [0ms]: [12772]	-question 2 [0ms]: [11618]	-data format time: [1ms]
+Result day 3:	-question 1 [5ms]: [8109]	-question 2 [3ms]: [2738]	-data format time: [1ms]
+Result day 4:	-question 1 [2ms]: [483]	-question 2 [1ms]: [874]	-data format time: [2ms]
 Result day 5:	-question 1 [1ms]: [CFFHVVHNC]	-question 2 [0ms]: [FSZWBPTBG]	-data format time: [1ms]
-Result day 6:	-question 1 [0ms]: [1141]	-question 2 [2ms]: [3496]	-data format time: [1ms]
+Result day 6:	-question 1 [2ms]: [1141]	-question 2 [1ms]: [3496]	-data format time: [1ms]
 Result day 7:	-question 1 [1ms]: [1427048]	-question 2 [1ms]: [2940614]	-data format time: [1ms]
-Result day 8:	-question 1 [29ms]: [1690]	-question 2 [38ms]: [535680]	-data format time: [3ms]
+Result day 8:	-question 1 [30ms]: [1690]	-question 2 [35ms]: [535680]	-data format time: [1ms]
