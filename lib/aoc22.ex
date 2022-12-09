@@ -12,7 +12,8 @@ defmodule Aoc22 do
     # clear result summery file
     File.rm("data/result_summery.txt")
     File.write("data/result_summery.txt", "Advent of Code 2022\r\n\r\n")
-    solutions = [Aoc22d1, Aoc22d2, Aoc22d3, Aoc22d4, Aoc22d5, Aoc22d6, Aoc22d7, Aoc22d8]
+    solutions = [Aoc22d1, Aoc22d2, Aoc22d3, Aoc22d4, Aoc22d5, Aoc22d6, Aoc22d7, Aoc22d8,
+                 Aoc22d9]
     Enum.map(0..(length(solutions)-1), fn i -> runDay(i+1,Enum.at(solutions,i)) end)
   end
 
