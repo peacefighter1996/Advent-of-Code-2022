@@ -106,4 +106,43 @@ defmodule Aoc22d9 do
   end
 
 
+
+  def is_in_map(_,_ ,{0,0}) do
+    's'
+  end
+  def is_in_map(map, map2, pos) do
+
+    if Map.has_key?(map, tuple_add( pos,{0.0,0.0})) do
+      if Map.has_key?(map2, tuple_add( pos,{0.0,0.0})) do
+        '#'
+      else
+        '.'
+      end
+    else
+      if Map.has_key?(map2, tuple_add( pos,{0.0,0.0})) do
+        'O'
+      else
+        ' '
+      end
+    end
+  end
+
+  def art() do
+    data= data()
+    map1 = runpath(Enum.map(0..1, fn _ -> {0,0} end),data)
+    map2 = runpath(Enum.map(0..9, fn _ -> {0,0} end),data)
+
+    keys = Map.keys(map1) ++ Map.keys(map2)
+    #IO.inspect(keys)
+    max_x = round(elem(Enum.max_by( keys, fn {x,_} -> x end),0))
+    max_y = round(elem(Enum.max_by( keys, fn {_,y} -> y end),1))
+    min_x = round(elem(Enum.min_by( keys, fn {x,_} -> x end),0))
+    min_y = round(elem(Enum.min_by( keys, fn {_,y} -> y end),1))
+
+    result= Enum.map(min_x..max_x, fn x -> Enum.map(min_y..max_y, fn y-> is_in_map(map1, map2, {x,y}) end ) end)
+    |> Enum.map(fn x -> Enum.join(x) end)
+    |> Enum.join("\r\n")
+    # write to file
+    File.write("data/output/day9.txt", result)
+  end
 end
