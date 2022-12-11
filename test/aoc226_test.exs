@@ -10,13 +10,13 @@ defmodule Aoc22d6Test do
     IO.puts("day 6 question 1: [#{Aoc22d6.question1(Aoc22d6.data("data/input/day6.txt"))}]")
     assert true
   end
-#
+
+  test "example 1 for question 2" do
+    assert Aoc22d6.question2('mjqjpqmgbljsphdztnvjfqwrcgsmlb') == 19
+  end
+
   test "input result question 2" do
     IO.puts("day 6 question 2: [#{Aoc22d6.question2(Aoc22d6.data("data/input/day6.txt"))}]")
     assert true
-  end
-#
-  test "example 1 for question 2" do
-    assert Aoc22d6.question2('mjqjpqmgbljsphdztnvjfqwrcgsmlb') == 19
   end
 end
